@@ -14,11 +14,13 @@ const App = observer(() => {
   const [todo, setTodo] = useState("")
 
   return (
-    <div data-testid="app" className='App'>
+    <div data-testid='app' className='App'>
       <Container>
         <h1 className='title'>My todos</h1>
         <h2 className='title'>Incomplete TODO Count {TodoStore.todosCount}</h2>
-        <p className='fa-6'>Click on todos to delete them. Click checkbox to mark as done.</p>
+        <p className='fa-6'>
+          Click on todos to delete them. Click checkbox to mark as done.
+        </p>
 
         <form
           onSubmit={(e) => {
@@ -42,7 +44,7 @@ const App = observer(() => {
           </Button>
         </form>
 
-        {TodoStore.todos?.map((todo,index) => {
+        {TodoStore.todos?.map((todo, index) => {
           return (
             <div key={todo.id} data-testid={`div-todo-item-${index}`}>
               <div>
@@ -53,7 +55,7 @@ const App = observer(() => {
                     }}
                   />
                   <span
-                  data-testid={`todo-item-${index}`}
+                    data-testid={`todo-item-${index}`}
                     onClick={(e) => TodoStore.deleteTodo(todo.id)}>
                     <FormControl
                       readOnly

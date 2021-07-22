@@ -1,7 +1,13 @@
 import { action, computed, makeObservable, observable } from "mobx"
 
+export type Todo = {
+  id: number
+  name: string
+  completed: false
+}
+
 class TodoStore {
-  todos = [
+  todos: Array<Todo> = [
     { id: 1, name: "Sample Todo", completed: false },
     { id: 2, name: "Cook", completed: false }
   ]
@@ -16,17 +22,20 @@ class TodoStore {
     })
   }
 
-  addTodo = (todo) => {
+  addTodo = (todo: Todo) => {
     this.todos.push(todo)
   }
 
-  deleteTodo = (id) => {
+  deleteTodo = (id: Todo["id"]) => {
     this.todos = this.todos.filter((todo) => todo.id !== id)
   }
 
-  updateTodo = (id) => {
-    const todoToUpdate = this.todos.find((todo) => todo.id === id)
+  updateTodo = (id: Todo["id"]) => {
+    const todoToUpdate  = this.todos.find(
+      (todo) => todo.id === id
+    )
 
+    //@ts-ignore
     todoToUpdate.completed = !todoToUpdate.completed
   }
 
