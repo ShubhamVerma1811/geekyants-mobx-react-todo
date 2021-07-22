@@ -8,6 +8,10 @@ const Posts = observer(({ store }) => {
     store.fetchUser()
   }, [])
 
+  useEffect(() => {
+    store.fetchPosts()
+  })
+
   return (
     <Container>
       <Row>
