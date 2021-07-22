@@ -14,7 +14,7 @@ const App = observer(() => {
   const [todo, setTodo] = useState("")
 
   return (
-    <div className='App'>
+    <div data-testid="app" className='App'>
       <Container>
         <h1 className='title'>My todos</h1>
         <h2 className='title'>Incomplete TODO Count {TodoStore.todosCount}</h2>
@@ -42,19 +42,20 @@ const App = observer(() => {
           </Button>
         </form>
 
-        {TodoStore.todos?.map((todo) => {
+        {TodoStore.todos?.map((todo,index) => {
           return (
-            <div key={todo.id}>
+            <div key={todo.id} data-testid={`div-todo-item-${index}`}>
               <div>
-                <InputGroup className='my-3'>
+                <InputGroup className='my-3 checkbox'>
                   <InputGroup.Checkbox
                     onChange={() => {
                       TodoStore.updateTodo(todo.id)
                     }}
                   />
-                  <span onClick={(e) => TodoStore.deleteTodo(todo.id)}>
+                  <span
+                  data-testid={`todo-item-${index}`}
+                    onClick={(e) => TodoStore.deleteTodo(todo.id)}>
                     <FormControl
-                      plainText
                       readOnly
                       role='button'
                       defaultValue={todo.name}
