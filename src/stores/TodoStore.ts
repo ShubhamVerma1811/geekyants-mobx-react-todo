@@ -31,9 +31,7 @@ class TodoStore {
   }
 
   updateTodo = (id: Todo["id"]) => {
-    const todoToUpdate  = this.todos.find(
-      (todo) => todo.id === id
-    )
+    const todoToUpdate = this.todos.find((todo) => todo.id === id)
 
     //@ts-ignore
     todoToUpdate.completed = !todoToUpdate.completed

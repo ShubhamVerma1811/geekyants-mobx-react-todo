@@ -1,6 +1,6 @@
-import { fireEvent, render, screen, } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import App from "./App"
-import {toBeInTheDocument} from "@testing-library/jest-dom"
+import { toBeInTheDocument } from "@testing-library/jest-dom"
 
 describe("App Component", () => {
   it("should render the App", () => {

@@ -18,7 +18,8 @@
     "dev": "craco start",
     "build": "craco build",
     "test": "craco test --watchAll --coverage",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "format": "prettier --write . --ignore-path .gitignore"
   },
   "eslintConfig": {
     "extends": [
